@@ -1,14 +1,14 @@
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class aostest {
+public class AOSSpeakerTest {
 
     private WebDriver webDriver;
 
@@ -24,13 +24,33 @@ public class aostest {
     // Make downloading the ChromeDriver dynamic
 
     @Test
-    public void demoFormTest() {
+    public void PopularItems() throws InterruptedException {
+        String info;
+
+        webDriver.get("https://advantageonlineshopping.com/#/");
+        Thread.sleep(5000);
+
+        WebElement speakers = webDriver.findElement(By.id("speakersImg"));
+
+        speakers.click();
+        Thread.sleep(5000);
+    }
+
+
+    @Test
+    public void TestSpeakerLink() throws InterruptedException {
         System.out.println("*** test ***");
         webDriver.get("https://advantageonlineshopping.com/#/");
         boolean expectedFieldsExist;
+
+        Thread.sleep(5000);
+
         try {
-            webDriver.findElement(By.name("Speakers"));
+            WebElement speakers = webDriver.findElement(By.id("speakersImg"));
             expectedFieldsExist = true;
+            speakers.click();
+            Thread.sleep(5000);
+
         } catch (NoSuchElementException e) {
             expectedFieldsExist = false;
         }

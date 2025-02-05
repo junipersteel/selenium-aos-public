@@ -37,7 +37,7 @@ public class AOSTabletTest {
         Thread.sleep(5000);
     }
 
-
+    // New procedure
     @Test
     public void TestSpeakerLink() throws InterruptedException {
         System.out.println("*** test ***");
